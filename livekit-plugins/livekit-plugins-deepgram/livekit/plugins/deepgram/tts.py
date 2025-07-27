@@ -273,7 +273,7 @@ class SynthesizeStream(tts.SynthesizeStream):
 
         async def send_task(ws: aiohttp.ClientWebSocketResponse) -> None:
             async for word in word_stream:
-                speak_msg = {"type": "Speak", "text": f"{word.token} "}
+                speak_msg = {"type": "Speak", "text": f" {word.token}"}
                 self._mark_started()
                 await ws.send_str(json.dumps(speak_msg))
 
